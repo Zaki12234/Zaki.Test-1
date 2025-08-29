@@ -24,3 +24,55 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.player {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 60px;
+  background: #9333ea;
+  transition: transform 0.1s linear;
+}
+
+.player.walk,
+.player.sprint {
+  animation: walk 0.4s steps(2) infinite;
+}
+
+.player.sprint {
+  animation-duration: 0.2s;
+}
+
+.player.crouch {
+  height: 40px;
+}
+
+.player.climb {
+  animation: climb 0.4s steps(2) infinite;
+}
+
+@keyframes walk {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: -40px 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes climb {
+  0% {
+    background-color: #16a34a;
+  }
+  50% {
+    background-color: #22c55e;
+  }
+  100% {
+    background-color: #16a34a;
+  }
+}
+
